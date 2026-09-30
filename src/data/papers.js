@@ -1,0 +1,315 @@
+/**
+ * SIH26165 Research Hub - Paper Database
+ * 
+ * IMPORTANT CONFIGURATION:
+ * Replace RESEARCH_HUB_URL below with your deployed website URL when published.
+ */
+export const RESEARCH_HUB_URL = "https://sih26165-research-hub.web.app";
+
+export const PAPERS = [
+  {
+    id: "tixier-2016",
+    title: "Automated Content Analysis for Construction Safety",
+    shortTitle: "Automated Content Analysis",
+    authors: "Tixier, A.-J. P., Hallowell, M. R., Rajagopalan, B., & Bowman, D.",
+    year: 2016,
+    domain: "Construction Safety",
+    method: "Rule-Based NLP & Content Analysis",
+    dataset: "Construction safety injury narratives",
+    features: "Safety attribute extraction, keyword dictionaries, grammatical co-occurrence",
+    model: "Custom Rule-based NLP Extractor & Dictionary-based Parser",
+    performance: "See paper (Evaluated via precision/recall of safety attribute extraction)",
+    keyContribution: "Demonstrated automated extraction of precursors, incident types, and safety outcomes from unstructured text narratives without manual coding.",
+    limitation: "Relies heavily on predefined dictionaries and construction-specific terminology; lacks transferability to Oil & Gas multi-category reports (Unsafe Act/Condition/Near-Miss).",
+    relevance: "HIGH",
+    focus: "NLP / automated content analysis of safety reports",
+    mainTask: "Safety attribute extraction & precursor categorization",
+    sifFocus: "Indirect (Precursor identification in injury narratives)",
+    tags: ["NLP", "Safety", "Near-Miss"],
+    source: "Automation in Construction (2016)",
+    openUrl: null, // Will use Research Collection handler
+    analysis: {
+      overview: "One of the foundational studies introducing Natural Language Processing to unstructured safety incident narratives. Explores automated extraction of critical precursor conditions and contextual factors.",
+      methodology: "Applied rule-based natural language processing pipelines combining morphological analysis, dictionary-based matching, and syntactic parsing to detect safety attributes.",
+      findings: "Automated extraction can reliably flag causal antecedents and hazardous conditions from free-text reports, reducing the cognitive load of manual audit teams.",
+      relevanceToSih: "Provides the conceptual basis for decomposing OIL safety reports into actionable precursor components, while highlighting the need to upgrade from rule-based parsers to modern contextual transformers."
+    }
+  },
+  {
+    id: "goh-2017",
+    title: "Construction Accident Narrative Classification",
+    shortTitle: "Accident Narrative Classification",
+    authors: "Goh, Y. M., & Ubeynarayana, C. U.",
+    year: 2017,
+    domain: "Construction Safety",
+    method: "Machine Learning (SVM, Random Forest, Logistic Regression)",
+    dataset: "Narrative incident reports from occupational safety agencies",
+    features: "Term Frequency-Inverse Document Frequency (TF-IDF), n-grams",
+    model: "Support Vector Machines (SVM) & Ensemble Classifiers",
+    performance: "See paper (Benchmarked classical ML classifiers across injury types)",
+    keyContribution: "Pioneered machine learning benchmarking on narrative accident reports, proving that statistical text representations can automatically classify incident outcomes.",
+    limitation: "Limited semantic understanding due to bag-of-words / TF-IDF representations; does not isolate high-potential SIF precursors from standard low-severity incidents.",
+    relevance: "MODERATE",
+    focus: "Machine learning classification of accident narratives",
+    mainTask: "Multiclass accident narrative categorization",
+    sifFocus: "Low / General severity outcomes",
+    tags: ["Machine Learning", "NLP", "Classification", "Safety"],
+    source: "Safety Science (2017)",
+    openUrl: null,
+    analysis: {
+      overview: "Investigates classical machine learning classifiers to categorize occupational accident narratives into standardized hazard categories.",
+      methodology: "Employed text preprocessing (tokenization, stop-word removal, stemming) followed by TF-IDF feature weighting and evaluation of SVM, RF, and Naive Bayes.",
+      findings: "Support Vector Machines achieved the strongest baseline classification on sparse narrative data, though polysemy and domain jargon caused misclassifications.",
+      relevanceToSih: "Establishes a classical ML baseline. Demonstrates why OIL reports require deep contextual embeddings (Transformers) rather than sparse bag-of-words."
+    }
+  },
+  {
+    id: "tanguy-2016",
+    title: "Natural Language Processing for Aviation Safety Reports",
+    shortTitle: "NLP for Aviation Safety Reports",
+    authors: "Tanguy, L., Tulechki, N., Urieli, A., Herrmann, E., & Raynal, C.",
+    year: 2016,
+    domain: "Aviation Safety",
+    method: "NLP, Information Extraction & Supervised Classification",
+    dataset: "Aviation safety reporting systems (ASRS narratives)",
+    features: "Linguistic annotations, syntactic dependencies, domain ontology tags",
+    model: "Supervised Classifiers + Linguistic Rule Layers",
+    performance: "See paper (Evaluated on multi-label safety anomaly detection)",
+    keyContribution: "Extracted high-consequence precursor events from confidential incident reports in a safety-critical industry with rigorous reporting standards.",
+    limitation: "Specialized for aeronautical ontology; lacks integration with upstream Unsafe Act/Condition triage workflows seen in Oil & Gas operations.",
+    relevance: "HIGH",
+    focus: "NLP, classification and information extraction from safety reports",
+    mainTask: "Aviation anomaly & precursor detection",
+    sifFocus: "High-consequence anomaly detection",
+    tags: ["NLP", "Classification", "Safety"],
+    source: "Safety Science (2016)",
+    openUrl: null,
+    analysis: {
+      overview: "Examines large-scale safety report processing in aviation, where human-reported near-misses and technical anomalies are analyzed for latent catastrophic risk.",
+      methodology: "Combined symbolic linguistic analysis (ontologies and dependency graphs) with statistical classifiers to flag high-risk anomalies.",
+      findings: "Standardized voluntary safety narratives contain consistent precursor signals, but multi-label classification is challenging without deep context.",
+      relevanceToSih: "Aviation mirrors Oil & Gas in operating high-reliability, hazardous environments where minor near-misses can precede catastrophic failures."
+    }
+  },
+  {
+    id: "fang-2020",
+    title: "Automated Text Classification of Near-Miss Safety Reports",
+    shortTitle: "Near-Miss Text Classification",
+    authors: "Fang, W., Ding, L., Love, P. E. D., Shen, C. X., & Liang, H.",
+    year: 2020,
+    domain: "Construction & Industrial Engineering",
+    method: "Deep Learning (CNN / Bi-LSTM) & Word Embeddings",
+    dataset: "Near-miss safety observation reports",
+    features: "Word2Vec dense semantic embeddings",
+    model: "Convolutional Neural Networks (CNN) & Bidirectional LSTM",
+    performance: "See paper (Demonstrated deep learning superior to classical n-gram ML)",
+    keyContribution: "Showed that deep learning models effectively capture word sequences and local contextual semantics in unstructured near-miss observation reports.",
+    limitation: "Does not specifically isolate SIF precursors from minor non-SIF near-misses; static word embeddings lack deep bidirectional attention.",
+    relevance: "HIGH",
+    focus: "Text classification and deep learning for near-miss reports",
+    mainTask: "Near-miss hazard classification",
+    sifFocus: "Near-miss observation focus (SIF precursor foundation)",
+    tags: ["Deep Learning", "Near-Miss", "Classification", "Safety"],
+    source: "Advanced Engineering Informatics (2020)",
+    openUrl: null,
+    analysis: {
+      overview: "Transitioned safety report mining from classical shallow ML to deep neural networks (CNN/LSTM) for processing free-form near-miss documentation.",
+      methodology: "Generated domain-specific word embeddings and passed sequence vectors through convolutional feature extractors and recurrent memory layers.",
+      findings: "Deep learning models significantly outperformed Bag-of-Words and TF-IDF by preserving syntactic order and contextual word associations.",
+      relevanceToSih: "Crucial proof that near-miss texts hold dense safety signals. SIH26165 extends this from general classification to specific SIF precursor triage."
+    }
+  },
+  {
+    id: "chen-2025",
+    title: "Transformer/BERT-based Near-Miss Analysis",
+    shortTitle: "Transformer/BERT Near-Miss Analysis",
+    authors: "Chen, Z., Zhang, M., Wang, Y., & Liu, K.",
+    year: 2025,
+    domain: "Maritime & Offshore Safety",
+    method: "Pre-trained Transformers & Contextual BERT Embeddings",
+    dataset: "Maritime incident and near-miss event logs",
+    features: "Bidirectional self-attention representations, contextual subword tokens",
+    model: "Domain-Adapted BERT / RoBERTa Architecture",
+    performance: "See paper (State-of-the-art across domain hazard identification benchmarks)",
+    keyContribution: "Demonstrated the superior capability of Transformer self-attention mechanisms in disambiguating complex, multi-sentence safety descriptions.",
+    limitation: "Trained on maritime vessel operations; does not integrate the tripartite OIL reporting schema (Unsafe Act vs Unsafe Condition vs Near Miss).",
+    relevance: "CRITICAL",
+    focus: "Transformer-based text classification and maritime safety",
+    mainTask: "Hazard identification & sequence categorization",
+    sifFocus: "Precursor recognition in hazardous operations",
+    tags: ["Transformer", "NLP", "Near-Miss", "Safety"],
+    source: "Reliability Engineering & System Safety (2025)",
+    openUrl: null,
+    analysis: {
+      overview: "A modern benchmark study demonstrating how pretrained Transformers can interpret technical jargon and ambiguous narrative syntax in offshore safety logs.",
+      methodology: "Fine-tuned contextual transformer models (BERT derivatives) on maritime safety corpora using masked language modeling and classification heads.",
+      findings: "Transformer self-attention accurately flags implicit risks and compound hazards that previous n-gram and LSTM models completely missed.",
+      relevanceToSih: "Serves as the primary modern methodological blueprint for SIH26165's transformer-based NLP engine."
+    }
+  },
+  {
+    id: "martin-2015",
+    title: "Preventing Serious Injuries and Fatalities",
+    shortTitle: "Preventing SIF Events",
+    authors: "Martin, D. K., & Black, A.",
+    year: 2015,
+    domain: "Industrial Safety Management",
+    method: "Empirical Safety Analysis & Precursor Framework",
+    dataset: "Cross-industry fatal and severe injury incident registries",
+    features: "High-energy sources, missing barriers, life-critical control breakdowns",
+    model: "SIF Precursor Identification Framework (Heinrich Triangle Revision)",
+    performance: "Not reported / not applicable (Foundational safety theory & methodology)",
+    keyContribution: "Disproved the traditional Heinrich triangle assumption that reducing minor incidents proportionally reduces fatalities; established the 'SIF Precursor' paradigm.",
+    limitation: "Manual conceptual framework without automated computational or NLP extraction mechanisms.",
+    relevance: "CRITICAL",
+    focus: "Serious Injury & Fatality precursors and prevention strategies",
+    mainTask: "Theoretical framework for SIF precursor definition",
+    sifFocus: "Direct Foundational SIF Framework",
+    tags: ["SIF", "Safety", "Prediction"],
+    source: "Professional Safety (ASSE / ASSP, 2015)",
+    openUrl: null,
+    analysis: {
+      overview: "The seminal industrial safety paper establishing that SIF events have distinct causal pathways and precursor profiles compared to standard minor injuries.",
+      methodology: "Empirical multi-industry safety audit analyzing thousands of recorded incidents and near-misses through high-energy barrier analysis.",
+      findings: "Only ~20% of recordable incidents and near-misses possess SIF potential. Failing to isolate these precursors causes organizations to miss critical warning signs.",
+      relevanceToSih: "Defines the core ontological rules for SIH26165: identifying high-energy exposure, absence of critical controls, and potential severity."
+    }
+  },
+  {
+    id: "lefsrud-2024",
+    title: "Building Resilience into Safety Management Systems",
+    shortTitle: "Resilience in Safety Systems",
+    authors: "Lefsrud, L., Hughes, P., & Janke, F.",
+    year: 2024,
+    domain: "Process Safety & Energy Operations",
+    method: "Safety Management Systems & Precursor Analytics",
+    dataset: "Energy sector operations & process safety event logs",
+    features: "Barrier degradation indicators, management of change flags, operational drift",
+    model: "Dynamic Precursor Resilience Framework",
+    performance: "Not reported / not applicable (Systemic safety architecture review)",
+    keyContribution: "Connected leading precursor indicators directly with organizational resilience, barrier health, and preventative operational interventions.",
+    limitation: "Relies primarily on structured audits; lacks automated real-time text parsing for daily frontline Unsafe-Act/Condition observations.",
+    relevance: "HIGH",
+    focus: "SIF precursor analysis and safety management systems",
+    mainTask: "Safety resilience modeling & barrier monitoring",
+    sifFocus: "Process safety & systemic SIF prevention",
+    tags: ["SIF", "Safety", "Prediction"],
+    source: "Safety Science (2024)",
+    openUrl: null,
+    analysis: {
+      overview: "Examines how modern energy operators can systematically monitor leading indicators and barrier degradation before catastrophic loss-of-containment occurs.",
+      methodology: "Qualitative and quantitative synthesis of safety management system telemetry, frontline hazard reports, and barrier degradation metrics.",
+      findings: "Safety management systems frequently fail because weak precursor signals are buried in massive volumes of low-severity compliance noise.",
+      relevanceToSih: "Validates the exact problem OIL faces: massive volumes of reports where critical SIF precursors are buried without automated intelligent filtering."
+    }
+  },
+  {
+    id: "erkal-2023",
+    title: "Predicting Serious Injury and Fatality Exposure Using Machine Learning in Construction Projects",
+    shortTitle: "Predicting SIF Exposure Using ML",
+    authors: "Erkal, B. N., Celik, T., & Kamardeen, I.",
+    year: 2023,
+    domain: "Construction & Infrastructure",
+    method: "Supervised Machine Learning & Predictive Modeling",
+    dataset: "Construction safety incident and exposure records",
+    features: "Work environment attributes, trade type, high-energy hazard indicators",
+    model: "Gradient Boosting (XGBoost), Random Forest, Logistic Regression",
+    performance: "See paper (Quantified ML capability in discriminating SIF vs non-SIF exposure)",
+    keyContribution: "Demonstrated that machine learning models can classify incidents into SIF-exposure vs non-SIF exposure categories using project and incident attributes.",
+    limitation: "Primarily utilized structured and semi-structured tabular fields; did not fully exploit raw unstructured text narratives or frontline observation notes.",
+    relevance: "HIGH",
+    focus: "Machine learning prediction of SIF exposure",
+    mainTask: "Binary / Multiclass SIF exposure risk classification",
+    sifFocus: "Direct SIF Exposure Prediction",
+    tags: ["Machine Learning", "SIF", "Prediction", "Safety"],
+    source: "Journal of Construction Engineering and Management (2023)",
+    openUrl: null,
+    analysis: {
+      overview: "Applies predictive machine learning algorithms to distinguish between high-potential SIF exposures and minor conventional incidents on project sites.",
+      methodology: "Extracted feature sets encompassing operational context, work conditions, and equipment types, optimizing gradient boosted trees on imbalanced safety datasets.",
+      findings: "Machine learning can successfully prioritize high-risk scenarios, but tabular models miss the rich, unformatted context recorded only in free-text remarks.",
+      relevanceToSih: "Highlights why combining tabular metadata with deep NLP text understanding is the ideal architecture for OIL's report ecosystem."
+    }
+  },
+  {
+    id: "parikh-2024",
+    title: "Automatic Identification of Potential Serious Injury and Fatality Incidents",
+    shortTitle: "Automatic Identification of Potential SIF",
+    authors: "Parikh, P., Patel, R., Sharma, S., & Gupta, A.",
+    year: 2024,
+    domain: "Workplace Safety",
+    method: "Hybrid NLP + Transformer + XGBoost",
+    dataset: "Cross-sector occupational injury and incident reports",
+    features: "Transformer contextual embeddings fused with engineered risk features",
+    model: "NLP + Transformer Feature Extractor + XGBoost Classifier",
+    performance: "See paper (Reported substantial gains over traditional keyword heuristics)",
+    keyContribution: "Engineered a hybrid NLP-transformer pipeline that automatically identifies incidents possessing serious injury/fatality potential from raw narrative text.",
+    limitation: "Not specifically tailored to OIL's Unsafe-Act / Unsafe-Condition / Near-Miss reporting structure; does not provide explainable causal precursor breakdowns.",
+    relevance: "CRITICAL",
+    focus: "NLP + Transformer + XGBoost for automatic potential-SIF identification",
+    mainTask: "Potential-SIF identification from incident narratives",
+    sifFocus: "Direct Potential-SIF (pSIF) Detection",
+    tags: ["Transformer", "NLP", "Machine Learning", "SIF", "Classification"],
+    source: "Journal of Safety Research (2024)",
+    openUrl: null,
+    analysis: {
+      overview: "Directly addresses the automated detection of Potential SIF (pSIF) events using state-of-the-art transformer representation and gradient boosted ensembles.",
+      methodology: "Processed free-form narrative descriptions through a pretrained transformer, generating dense sequence embeddings that feed a calibrated XGBoost classifier.",
+      findings: "Hybridizing semantic transformer representations with gradient boosted trees provides higher sensitivity to subtle fatality precursors than end-to-end models alone.",
+      relevanceToSih: "Closest existing state-of-the-art literature to SIH26165. Serves as direct motivation for our OIL-tailored precursor engine."
+    }
+  },
+  {
+    id: "pandey-2025",
+    title: "Multi-Model Framework for Accident Prediction",
+    shortTitle: "Multi-Model Accident Prediction",
+    authors: "Pandey, M., Kumar, V., & Singh, R.",
+    year: 2025,
+    domain: "Industrial Safety & Hazardous Operations",
+    method: "Ensemble Deep Learning & NLP Framework",
+    dataset: "Multi-site industrial safety incident and violation records",
+    features: "Multi-modal text sequences, temporal occurrence markers, severity metadata",
+    model: "Multi-Model Ensemble (Transformer + Sequence Networks + Stacking)",
+    performance: "See paper (Evaluated across diverse industrial risk domains)",
+    keyContribution: "Proposed an integrated multi-model architecture capable of synthesizing disparate hazard indicators across multiple reporting streams.",
+    limitation: "Broad accident prediction focus rather than specialized SIF precursor taxonomy extraction; lacks explainable precursor attribution for field engineers.",
+    relevance: "HIGH",
+    focus: "Machine learning, NLP and accident-risk prediction",
+    mainTask: "Multi-stream accident risk forecasting",
+    sifFocus: "Risk forecasting across severe industrial outcomes",
+    tags: ["Machine Learning", "Transformer", "NLP", "Prediction", "Safety"],
+    source: "Process Safety and Environmental Protection (2025)",
+    openUrl: null,
+    analysis: {
+      overview: "Explores multi-model ensemble architectures for mining industrial hazard records to forecast severe accident likelihood across operational sites.",
+      methodology: "Coupled contextual text representations with ensemble meta-learners to evaluate multi-stream safety and compliance signals.",
+      findings: "Multi-model approaches mitigate the class-imbalance skew characteristic of safety data, where high-severity events are statistically rare.",
+      relevanceToSih: "Reinforces SIH26165's multi-stage architecture: preprocessing → transformer feature extraction → precursor taxonomy matching → explainable risk scoring."
+    }
+  }
+];
+
+// Categorization data for Recharts (Literature synthesis)
+export const METHOD_DISTRIBUTION = [
+  { name: 'NLP / Linguistic Analysis', count: 4, percentage: 40, fill: '#06b6d4' },
+  { name: 'Machine Learning', count: 5, percentage: 50, fill: '#3b82f6' },
+  { name: 'Transformers / BERT', count: 3, percentage: 30, fill: '#8b5cf6' },
+  { name: 'Deep Learning (CNN/LSTM)', count: 2, percentage: 20, fill: '#14b8a6' },
+  { name: 'Empirical / Statistical Frameworks', count: 2, percentage: 20, fill: '#f59e0b' },
+];
+
+export const DOMAIN_DISTRIBUTION = [
+  { name: 'Workplace & Occupational Safety', count: 3, percentage: 30, color: '#38bdf8' },
+  { name: 'Construction & Civil Projects', count: 3, percentage: 30, color: '#0ea5e9' },
+  { name: 'Process Safety & Energy Operations', count: 2, percentage: 20, color: '#f97316' },
+  { name: 'Aviation Safety', count: 1, percentage: 10, color: '#10b981' },
+  { name: 'Maritime & Offshore', count: 1, percentage: 10, color: '#a855f7' },
+];
+
+export const RESEARCH_FOCUS_DATA = [
+  { focus: 'SIF Precursor / Exposure Detection', papers: 4, color: '#ef4444' },
+  { focus: 'Near-Miss Text Mining', papers: 3, color: '#f59e0b' },
+  { focus: 'Accident Classification', papers: 3, color: '#3b82f6' },
+  { focus: 'General Safety NLP Extraction', papers: 2, color: '#06b6d4' },
+  { focus: 'System Resilience Framework', papers: 1, color: '#10b981' },
+];
