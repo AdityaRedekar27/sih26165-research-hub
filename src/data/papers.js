@@ -4,7 +4,7 @@
  * IMPORTANT CONFIGURATION:
  * Replace RESEARCH_HUB_URL below with your deployed website URL when published.
  */
-export const RESEARCH_HUB_URL = "https://sih26165-research-hub.web.app";
+export const RESEARCH_HUB_URL = "https://adityaredekar27.github.io/sih26165-research-hub/";
 
 export const PAPERS = [
   {
