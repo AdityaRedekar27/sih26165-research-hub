@@ -6,19 +6,15 @@ import {
   ExternalLink, 
   Copy, 
   Check, 
-  Sparkles, 
-  Layers, 
-  Info,
   Laptop
 } from 'lucide-react';
 import { RESEARCH_HUB_URL } from '../data/papers';
 
 export default function QRSection() {
   const [copied, setCopied] = useState(false);
-  const [customUrl, setCustomUrl] = useState(RESEARCH_HUB_URL);
 
   const handleCopyUrl = () => {
-    navigator.clipboard.writeText(customUrl);
+    navigator.clipboard.writeText(RESEARCH_HUB_URL);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -51,40 +47,39 @@ export default function QRSection() {
               </p>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
-                Scan the dynamic QR code with any mobile device to immediately open this research hub during hackathon evaluation rounds, lab presentations, or academic defense.
+                Scan the QR code with any mobile device to immediately open this research hub during hackathon evaluation rounds, lab presentations, or academic defense.
               </p>
 
-              {/* URL Display and Copy */}
+              {/* Direct Portal Link */}
               <div className="pt-2">
-                <div className="text-[11px] font-mono text-slate-400 mb-1.5 flex items-center justify-between max-w-md">
-                  <span>Target Portal Endpoint:</span>
-                  <span className="text-brand-cyan">Configured in papers.js</span>
+                <div className="text-xs font-mono text-slate-300 mb-2 font-medium">
+                  Direct Portal URL:
                 </div>
 
-                <div className="flex items-center gap-2 max-w-md bg-navy-950/80 p-2 rounded-xl border border-navy-750">
-                  <input
-                    type="text"
-                    value={customUrl}
-                    onChange={(e) => setCustomUrl(e.target.value)}
-                    className="flex-1 bg-transparent text-xs font-mono text-white px-2 focus:outline-none"
-                    placeholder="https://YOUR-DEPLOYED-WEBSITE-URL"
-                  />
+                <div className="flex items-center gap-2 max-w-md bg-navy-950/90 p-2 rounded-xl border border-navy-750 shadow-inner">
+                  <span className="flex-1 text-xs font-mono text-brand-cyan px-2 truncate">
+                    {RESEARCH_HUB_URL}
+                  </span>
+                  
                   <button
                     onClick={handleCopyUrl}
-                    className="px-3 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-xs font-mono text-slate-200 border border-navy-700 flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="px-3 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-xs font-mono text-slate-200 border border-navy-700 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer shrink-0"
+                    title="Copy live URL"
                   >
                     {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-brand-cyan" />}
-                    <span>{copied ? "Copied" : "Copy"}</span>
+                    <span>{copied ? "Copied" : "Copy Link"}</span>
                   </button>
-                </div>
-              </div>
 
-              {/* Deployment hint */}
-              <div className="flex items-start gap-2 text-[11px] font-mono text-slate-400 max-w-md pt-2">
-                <Info className="w-4 h-4 text-brand-cyan shrink-0 mt-0.5" />
-                <span>
-                  To update for live judges: replace <code className="text-brand-cyan">RESEARCH_HUB_URL</code> in <code className="text-slate-300">src/data/papers.js</code> with your deployed URL.
-                </span>
+                  <a
+                    href={RESEARCH_HUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-brand-cyan border border-navy-700 transition-colors shrink-0"
+                    title="Open live portal in new tab"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -95,7 +90,7 @@ export default function QRSection() {
                 {/* QR Code Container */}
                 <div className="p-2 bg-white rounded-lg flex items-center justify-center">
                   <QRCodeSVG
-                    value={customUrl || "https://sih26165-research-hub.web.app"}
+                    value={RESEARCH_HUB_URL}
                     size={200}
                     level="H"
                     includeMargin={false}
